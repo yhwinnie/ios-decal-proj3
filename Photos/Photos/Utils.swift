@@ -15,7 +15,7 @@ class Utils {
         let cid = NSDictionary(contentsOfFile: path!)?.valueForKey("client_id") as! String
         return cid
     }
-
+    
     class func getPopularURL() -> NSURL {
         let cid = clientID()
         let urlStr = "https://api.instagram.com/v1/media/popular?client_id=\(cid)"
