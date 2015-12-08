@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         loadImageForCell(self.photo, imageView: self.photoView)
         userLabel.text = self.photo.username
         numLikes.text! = "\(self.photo.likes) Likes"
-        datePosted.text = self.photo.datePosted
+        datePosted.text = self.photo.dateCreated
         
         
         
