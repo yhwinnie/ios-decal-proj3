@@ -16,6 +16,7 @@
 		3A1683A71BE9C593009F39C5 /* InstagramAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1683A61BE9C593009F39C5 /* InstagramAPI.swift */; };
 		3A1683A91BE9C5A7009F39C5 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1683A81BE9C5A7009F39C5 /* Photo.swift */; };
 		4C009A7D1BFB013900D029AD /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C009A7C1BFB013900D029AD /* PhotosCollectionViewCell.swift */; };
+		4C01973E1C163D8A00B63ECD /* Screen Shot 2015-12-03 at 8.21.23 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C01973D1C163D8900B63ECD /* Screen Shot 2015-12-03 at 8.21.23 PM.png */; };
 		4C0226EF1BFB43540096D3DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0226EE1BFB43540096D3DD /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		3A1683A61BE9C593009F39C5 /* InstagramAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramAPI.swift; sourceTree = "<group>"; };
 		3A1683A81BE9C5A7009F39C5 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		4C009A7C1BFB013900D029AD /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		4C01973D1C163D8900B63ECD /* Screen Shot 2015-12-03 at 8.21.23 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Screen Shot 2015-12-03 at 8.21.23 PM.png"; path = "../../../Screen Shot 2015-12-03 at 8.21.23 PM.png"; sourceTree = "<group>"; };
 		4C0226EE1BFB43540096D3DD /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +92,7 @@
 				4C009A7C1BFB013900D029AD /* PhotosCollectionViewCell.swift */,
 				3A1683911BE9B642009F39C5 /* PhotosCollectionViewController.swift */,
 				4C0226EE1BFB43540096D3DD /* ViewController.swift */,
+				4C01973D1C163D8900B63ECD /* Screen Shot 2015-12-03 at 8.21.23 PM.png */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				3A16839A1BE9B642009F39C5 /* LaunchScreen.storyboard in Resources */,
 				3A1683971BE9B642009F39C5 /* Assets.xcassets in Resources */,
 				3A1683951BE9B642009F39C5 /* Main.storyboard in Resources */,
+				4C01973E1C163D8A00B63ECD /* Screen Shot 2015-12-03 at 8.21.23 PM.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

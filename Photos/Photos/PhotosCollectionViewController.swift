@@ -8,61 +8,80 @@
 
 import UIKit
 
-class PhotosCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-
-    var photos = [Photo]()
+class PhotosCollectionViewController: UICollectionViewController {
+    var photos: [Photo]!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-//
+        
         let api = InstagramAPI()
         api.loadPhotos(didLoadPhotos)
-        self.collectionView!.delegate = self
-
-
+        // FILL ME IN
+        self.collectionView?.backgroundColor = UIColor.whiteColor()
     }
-    //to identify the number of items that are to be displayed in each section
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photos.count
+    
+    /*
+    * IMPLEMENT ANY COLLECTION VIEW DELEGATE METHODS YOU FIND NECESSARY
+    * Examples include cellForItemAtIndexPath, numberOfSections, etc.
+    */
+    
+    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! PhotosCollectionViewCell
-
-        loadImageForCell(photos[indexPath.row], imageView: cell.imageView)
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("imagecell", forIndexPath: indexPath)
+        let imageView = UIImageView(frame: CGRectMake(0, 0, 100, 100))
+        loadImageForCell(photos[indexPath.item], imageView: imageView)
+        cell.addSubview(imageView)
         return cell
-}
+    }
     
     
-    /* 
-     * IMPLEMENT ANY COLLECTION VIEW DELEGATE METHODS YOU FIND NECESSARY
-     * Examples include cellForItemAtIndexPath, numberOfSections, etc.
-     */
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if self.photos != nil {
+            return self.photos.count
+        } else {
+            return 0
+        }
+    }
     
-    /* Creates a session from a photo's url to download data to instantiate a UIImage. 
-       It then sets this as the imageView's image. */
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSize(width: 96, height: 95)
+    }
     
+    
+//    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+//        performSegueWithIdentifier("Segue", sender: indexPath)
+//    }
+//    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        let indexPath = sender as! NSIndexPath
+//        if (segue.identifier == "Segue") {
+//            let destViewController = segue.destinationViewController as! ViewController
+//            destViewController.photo = photos[indexPath.row]
+//        }
+//    }
+//    
+    
+    /* Creates a session from a photo's url to download data to instantiate a UIImage.
+    It then sets this as the imageView's image. */
     func loadImageForCell(photo: Photo, imageView: UIImageView) {
         let task = NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: photo.url)!) {
             (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
             if error == nil {
-                var images = UIImage(data: data!)
-                imageView.image = images
+                imageView.image = UIImage(data: data!)
             }
         }
         task.resume()
+        
     }
-
-
-
     
     /* Completion handler for API call. DO NOT CHANGE */
     func didLoadPhotos(photos: [Photo]) {
         self.photos = photos
         self.collectionView!.reloadData()
     }
-
     
 }
-
