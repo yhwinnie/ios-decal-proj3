@@ -12,10 +12,14 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     
 
     @IBOutlet weak var imageView: UIImageView!
+    let photo = UIImageView()
     
-
     
 }
+
+
+    
+
 
 
 

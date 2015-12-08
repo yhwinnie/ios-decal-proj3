@@ -1,4 +1,3 @@
-
 //
 //  Photo.swift
 //  Photos
@@ -16,20 +15,19 @@ class Photo {
     var url : String!
     /* The username of the photographer. */
     var username : String!
-    /* Date photo posted */
-    var datePosted : NSDate!
-    
+    var datePosted: String!
+
     /* Parses a NSDictionary and creates a photo object. */
     init (data: NSDictionary) {
         // FILL ME IN
         // HINT: use nested .valueForKey() calls, and then cast using 'as! TYPE'
+        username = data.valueForKey("user")?.valueForKey("username") as! String
+        url = data.valueForKey("images")?.valueForKey("thumbnail")?.valueForKey("url") as! String
+        likes = data.valueForKey("likes")?.valueForKey("count") as! Int
+        datePosted = data.valueForKey("created_time") as! String
         
-        self.likes = (data.valueForKey("likes") as! NSDictionary).valueForKey("count") as! Int
-        let image = (data.valueForKey("images") as! NSDictionary).valueForKey("standard_resolution") as! NSDictionary
-        self.url = image.valueForKey("url") as! String
-        self.username = (data.valueForKey("user") as! NSDictionary).valueForKey("username") as! String
-        let i = (data.valueForKey("created_time")) as! String
-        self.datePosted = NSDate(timeIntervalSince1970: Double(i)!)
+        }
     }
-    
-}
+
+
+
